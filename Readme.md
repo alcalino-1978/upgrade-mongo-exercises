@@ -1,5 +1,5 @@
 <a href="https://www.mongodb.com/docs/">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" alt="Monogo Db logo" title="Aimeos" align="right" height="60" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" alt="Monogo Db logo" title="Moogo DB" align="right" height="60" />
 </a>
 
 # Ejercicio práctico de MongoDB
@@ -151,6 +151,7 @@ db.movies.find({synopsis: {$regex: "Gandalf"}})
 db.movies.find({$and: [{synopsis: {$regex: "Bilbo"}},{synopsis: {$not: {$regex: "Gandalf"}}}]})
 ```
 [Run code >](https://mongoplayground.net/p/eiX87agnfQl)
+[Help information](https://www.mongodb.com/docs/manual/reference/operator/query/not/?_ga=2.154767480.1757374301.1669409445-1902485406.1669409442#-not-and-regular-expressions)
 
 **4. Encontrar las películas que en la sinopsis contengan la palabra "dwarves" ó "hobbit"**
 ```mongo
