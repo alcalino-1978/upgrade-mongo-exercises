@@ -1,0 +1,40 @@
+Ejercicio 1.-
+
+1.- insertar en la colección ciudades
+
+db.Ciudades.insertMany([{"ciudad" : "Madrid", "habitantes" : 3233527, "capital" : "sí"},{ "ciudad" : "Barcelona", "habitantes" : 1620943 },{"ciudad" : "Murcia", "habitantes" : 245468 },{"ciudad" : "Zaragoza", "habitantes" : 344 },{"ciudad" : "Valencia", "habitantes" : 797028 },{ "ciudad" : "Sevilla", "habitantes" : 702355 },{"ciudad" : "Zaragoza", "habitantes" : 679624 }])
+
+2.- ordenar por ciudad, ascendente, y sólo obtener los cuatro primeros documentos
+
+db.Ciudades.find().sort({ciudad:1}).limit(3)
+
+3.- ordenar por población descendente
+
+db.Ciudades.find().sort({habitantes:-1})
+
+4.- obtener las ciudades que empiecen por “M”
+
+db.Ciudades.find({ciudad: {$regex: /^M/}})
+
+5.- ordenar , a la vez, primero por nombre (desc) y luego por número de habitantes (asc)
+
+{ciudad: -1, habitantes:1}
+
+6.- Obtener aquellas ciudades que sean capital, y mostrarlo.
+
+db.Ciudades.find({capital: {$exists: 1}})
+
+7.- Mostrar el nombre de las ciudades que superen un millón de habitantes
+
+db.Ciudades.find({habitantes: {$gt: 1000000}}, {ciudad: 1, "_id" :0})
+
+8.-¿qué devolverá la consulta: db.ciudades.find({ciudad:{$in:['Avila','Zamora','Madrid']}})?
+
+Madrid
+
+9.- ¿Número de ciudades que componen la colección?
+
+db.Ciudades.count()
+
+10.- Ciudades que empiecen por “B” o acaben por “z”
+db.Ciudades.find({$or: [{ciudad: {$regex: /^B/}},{ciudad: {$regex: /z$/}}]})
