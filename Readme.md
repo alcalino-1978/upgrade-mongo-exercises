@@ -15,7 +15,7 @@
 [Link JSON a insertar](https://raw.githubusercontent.com/alcalino-1978/upgrade-mongo-exercises/master/movies.json "Link JSON a insertar")
 
 Insertar los siguientes documentos en una colección llamada **movies**. 
-
+```javascript
 	db.movies.insertMany([
         {
             "title": "Fight Club",
@@ -71,43 +71,44 @@ Insertar los siguientes documentos en una colección llamada **movies**.
             "title": "Avatar"
         }
     ])
+```
 	
 ## Consultas / Buscar documentos
 
 Realizar las siguientes consultas en la colección movies:
 
 **1. Obtener todos los documentos**
-```mongo
+```javascript
 db.movies.find()
 ```
 [Run code >](https://mongoplayground.net/p/RvjCAgC3g_5 "Abrir ejemplo en Mongo playground")
 
 **2. Obtener documentos con writer igual a *"Quentin Tarantino"***
-```mongo
+```javascript
 db.movies.find({"writer": "Quentin Tarantino"})
 ```
 [Run code >](https://mongoplayground.net/p/--cPcsd0_sA)
 
 **3. Obtener documentos con actors que incluyan a *"Brad Pitt"***
-```mongo
+```javascript
 db.movies.find({actors: "Brad Pitt"})
 ```
 [Run code >](https://mongoplayground.net/p/2D6uNEAMRUg)
 
 **4. Obtener documentos con franchise  igual a *"The Hobbit"***
-```mongo
+```javascript
 db.movies.find({franchise: "The Hobbit"})
 ```
 [Run code >](https://mongoplayground.net/p/C6odyhVKiUh)
 
 **5. Obtener todas las películas de los 90s.**
-```mongo
+```javascript
 db.movies.find({year: {$gte: 1990,$lt: 2000}})
 ```
 [Run code >](https://mongoplayground.net/p/p_yaihFB_32)
 
 **6. Obtener las películas estrenadas entre el año 2000 y 2010.**
-```mongo
+```javascript
 db.movies.find({year: {$gte: 2000,$lte: 2010}})
 ```
 [Run code >](https://mongoplayground.net/p/VplcnmCIe6v)
@@ -115,7 +116,7 @@ db.movies.find({year: {$gte: 2000,$lte: 2010}})
 ## Actualizar Documentos
 
 **1. Agregar sinopsis a *"The Hobbit: An Unexpected Journey"* : "*A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."***
-```mongo
+```javascript
 db.movies.updateOne(
   { title: "The Hobbit: An Unexpected Journey" },
   {
@@ -129,7 +130,7 @@ db.movies.updateOne(
 [Run code >](https://mongoplayground.net/p/YaIyLT0buWb)
 
 **2. Agregar sinopsis a *"The Hobbit: The Desolation of Smaug"* : *"The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."***
-```mongo
+```javascript
 db.movies.updateOne(
   { title: "The Hobbit: The Desolation of Smaug" },
   {
@@ -143,7 +144,7 @@ db.movies.updateOne(
 [Run code >](https://mongoplayground.net/p/lYr9kRdBhGF)
 
 **3. Agregar una actor llamado "Samuel L. Jackson" a la película "Pulp Fiction"**
-```mongo
+```javascript
 db.movies.updateOne(
   { title: "Pulp Fiction" },
   { $push: { actors: "Samuel L. Jackson" } }
@@ -154,19 +155,19 @@ db.movies.updateOne(
 ## Búsqueda por Texto / Text Search
 
 **1. Encontrar las películas que en el título contengan la palabra "Hobbit"**
-```mongo
+```javascript
 db.movies.find({title: {$regex: "Hobbit"}})
 ```
 [Run code >](https://mongoplayground.net/p/7YhhgvvzRGy)
 
 **2. Encontrar las películas que en la sinopsis contengan la palabra "Gandalf"**
-```mongo
+```javascript
 db.movies.find({synopsis: {$regex: "Gandalf"}})
 ```
 [Run code >](https://mongoplayground.net/p/AcooZyyWqPP)
 
 **3. Encontrar las películas que en la sinopsis contengan la palabra "Bilbo" y no la palabra "Gandalf"** (<a href="https://www.mongodb.com/docs/manual/reference/operator/query/not/?_ga=2.154767480.1757374301.1669409445-1902485406.1669409442#-not-and-regular-expressions" align="right" alt="Help info to resolve this problem" target="_blank" style="text-align:right">Help Info</a>)
-```mongo
+```javascript
 db.movies.find({
   $and: [
     { synopsis: { $regex: "Bilbo" } },
@@ -177,7 +178,7 @@ db.movies.find({
 <a href="https://mongoplayground.net/p/eiX87agnfQl" align="right" alt="Run code" target="_blank">Run code ></a>
 
 **4. Encontrar las películas que en la sinopsis contengan la palabra "dwarves" ó "hobbit"**
-```mongo
+```javascript
 db.movies.find({
   $or: [
     { synopsis: { $regex: "dwarves", $options: "i" } },
@@ -201,11 +202,11 @@ db.movies.find({
 ## Eliminar Documentos
 
 **1. Eliminar la película "Pee Wee Herman's Big Adventure"**
-```mongo
+```javascript
 db.movies.remove({title: "Pee Wee Herman's Big Adventure"})
 ```
 
 **2. Eliminar la película "Avatar"**
-```mongo
+```javascript
 db.movies.remove({title: "Avatar"})
 ```
