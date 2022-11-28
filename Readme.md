@@ -146,12 +146,11 @@ db.movies.find({synopsis: {$regex: "Gandalf"}})
 ```
 [Run code >](https://mongoplayground.net/p/AcooZyyWqPP)
 
-**3. Encontrar las películas que en la sinopsis contengan la palabra "Bilbo" y no la palabra "Gandalf"**
+**3. Encontrar las películas que en la sinopsis contengan la palabra "Bilbo" y no la palabra "Gandalf"** (<a href="https://www.mongodb.com/docs/manual/reference/operator/query/not/?_ga=2.154767480.1757374301.1669409445-1902485406.1669409442#-not-and-regular-expressions" align="right" alt="Help info to resolve this problem" target="_blank" style="text-align:right">Help Info</a>)
 ```mongo
 db.movies.find({$and: [{synopsis: {$regex: "Bilbo"}},{synopsis: {$not: {$regex: "Gandalf"}}}]})
 ```
-[Run code >](https://mongoplayground.net/p/eiX87agnfQl)
-[Help information](https://www.mongodb.com/docs/manual/reference/operator/query/not/?_ga=2.154767480.1757374301.1669409445-1902485406.1669409442#-not-and-regular-expressions)
+<a href="https://mongoplayground.net/p/eiX87agnfQl" align="right" alt="Run code" target="_blank">Run code ></a>
 
 **4. Encontrar las películas que en la sinopsis contengan la palabra "dwarves" ó "hobbit"**
 ```mongo
