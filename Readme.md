@@ -82,7 +82,7 @@ db.movies.find()
 ```mongo
 db.movies.find({"writer": "Quentin Tarantino"})
 ```
-[Run code >](https://mongoplayground.net/p/RvjCAgC3g_5)
+[Run code >](https://mongoplayground.net/p/--cPcsd0_sA)
 
 **3. Obtener documentos con actors que incluyan a *"Brad Pitt"***
 ```mongo
