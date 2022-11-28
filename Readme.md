@@ -85,7 +85,7 @@ db.movies.find()
 
 **2. Obtener documentos con writer igual a *"Quentin Tarantino"***
 ```javascript
-db.movies.find({"writer": "Quentin Tarantino"})
+db.movies.find({writer: "Quentin Tarantino"})
 ```
 [Run code >](https://mongoplayground.net/p/--cPcsd0_sA)
 
