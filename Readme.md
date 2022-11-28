@@ -1,4 +1,8 @@
-﻿# Ejercicio práctico de MongoDB
+<a href="https://www.mongodb.com/docs/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" alt="Monogo Db logo" title="Aimeos" align="right" height="60" />
+</a>
+
+# Ejercicio práctico de MongoDB
 
 1. Para resolver este ejercicio se utilizara el 'mongo shell' de MongoDB.
 
