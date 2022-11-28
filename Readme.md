@@ -116,19 +116,38 @@ db.movies.find({year: {$gte: 2000,$lte: 2010}})
 
 **1. Agregar sinopsis a *"The Hobbit: An Unexpected Journey"* : "*A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."***
 ```mongo
-db.movies.updateOne({"title": "The Hobbit: An Unexpected Journey"},{$set: {"synopsis": "A reluctant hobbit, Bilbo Baggins, sets out to the Lly Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."}})
+db.movies.updateOne(
+  { title: "The Hobbit: An Unexpected Journey" },
+  {
+    $set: {
+      synopsis:
+        "A reluctant hobbit, Bilbo Baggins, sets out to the Lly Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."
+    }
+  }
+)
 ```
 [Run code >](https://mongoplayground.net/p/YaIyLT0buWb)
 
 **2. Agregar sinopsis a *"The Hobbit: The Desolation of Smaug"* : *"The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."***
 ```mongo
-db.movies.updateOne({"title": "The Hobbit: The Desolation of Smaug"},{$set: {"synopsis": "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."}})
+db.movies.updateOne(
+  { title: "The Hobbit: The Desolation of Smaug" },
+  {
+    $set: {
+      synopsis:
+        "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."
+    }
+  }
+)
 ```
 [Run code >](https://mongoplayground.net/p/lYr9kRdBhGF)
 
 **3. Agregar una actor llamado "Samuel L. Jackson" a la película "Pulp Fiction"**
 ```mongo
-db.movies.updateOne({title: "Pulp Fiction"},{$push: {actors: "Samuel L. Jackson"}})
+db.movies.updateOne(
+  { title: "Pulp Fiction" },
+  { $push: { actors: "Samuel L. Jackson" } }
+)
 ```
 [Run code >](https://mongoplayground.net/p/n1YcDSHKDTS)
 
@@ -148,19 +167,34 @@ db.movies.find({synopsis: {$regex: "Gandalf"}})
 
 **3. Encontrar las películas que en la sinopsis contengan la palabra "Bilbo" y no la palabra "Gandalf"** (<a href="https://www.mongodb.com/docs/manual/reference/operator/query/not/?_ga=2.154767480.1757374301.1669409445-1902485406.1669409442#-not-and-regular-expressions" align="right" alt="Help info to resolve this problem" target="_blank" style="text-align:right">Help Info</a>)
 ```mongo
-db.movies.find({$and: [{synopsis: {$regex: "Bilbo"}},{synopsis: {$not: {$regex: "Gandalf"}}}]})
+db.movies.find({
+  $and: [
+    { synopsis: { $regex: "Bilbo" } },
+    { synopsis: { $not: { $regex: "Gandalf" } } }
+  ]
+})
 ```
 <a href="https://mongoplayground.net/p/eiX87agnfQl" align="right" alt="Run code" target="_blank">Run code ></a>
 
 **4. Encontrar las películas que en la sinopsis contengan la palabra "dwarves" ó "hobbit"**
 ```mongo
-db.movies.find({$or: [{synopsis: {$regex: "dwarves", $options: "i"}},{synopsis: {$regex: "hobbit", $options: "i"}}]})
+db.movies.find({
+  $or: [
+    { synopsis: { $regex: "dwarves", $options: "i" } },
+    { synopsis: { $regex: "hobbit", $options: "i" } }
+  ]
+})
 ```
 [Run code >](https://mongoplayground.net/p/OjnB1qBCtJg)
 
 **5. Encontrar las películas que en la sinopsis contengan la palabra "gold" y "dragon"**
-```mongo
-db.movies.find({$and: [{synopsis: {$regex: "gold", $options: "i"}},{synopsis: {$regex: "dragon", $options: "i"}}]})
+```javascript
+db.movies.find({
+  $and: [
+    { synopsis: { $regex: "gold", $options: "i" } },
+    { synopsis: { $regex: "dragon", $options: "i" } }
+  ]
+})
 ```
 [Run code >](https://mongoplayground.net/p/6MxsA6-qtRs)
 
