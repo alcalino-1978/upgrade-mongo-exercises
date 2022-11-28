@@ -16,7 +16,7 @@
 
 Insertar los siguientes documentos en una colección llamada **movies**. 
 ```javascript
-	db.movies.insertMany([
+db.movies.insertMany([
         {
             "title": "Fight Club",
             "writer": "Chuck Palahniuk",
